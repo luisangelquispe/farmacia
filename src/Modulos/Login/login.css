@@ -1,0 +1,26 @@
+.inp{
+    border: 2px solid #d0d0d0;    
+    padding: .8rem 1rem .8rem 3em;
+    border-radius: 2rem;
+}
+
+.btn{
+    padding: .8rem;
+    border: 0px;
+    border-radius: 2rem;
+    background: linear-gradient(to right, #00bcd4, #3385f3);
+    color: white;
+    cursor: pointer;
+    transition: transform 80ms ease-out;
+}
+.btn:hover{
+    transform: scale(.97);
+    background: #3385f3;
+}
+input{      
+    outline: none;
+}
+
+input:focus {
+    border-color: #00bcd4;
+}
