@@ -25,6 +25,10 @@
 } */
 
 
+/* --------------------------- */
+/* --Table pc------------- */
+/* --------------------------- */
+
 th,
 td {
   border: 1px solid #edf2f9;
@@ -59,4 +63,93 @@ tbody tr:nth-child(odd) {
 
 tbody tr:nth-child(even) {
   background-color: #f9fafd;
+}
+
+
+/* --------------------------- */
+/* --Table mobile------------- */
+/* --------------------------- */
+
+.ssss {
+  display: flex;
+  border-bottom: 2px solid #ccd4e0;
+}
+
+
+.colum_mobile {
+  white-space: nowrap;
+  background: #edf2f9;
+  color: #303b4a;
+  font-weight: 600;
+}
+
+.row_mobile {
+  width: 100%;
+  color: #5e6e82;
+}
+
+.colum_mobile p,
+.row_mobile p {
+  padding: .5rem;
+  border: 1px solid #edf2f9;
+}
+
+.ssss:nth-child(odd) .row_mobile {
+  background-color: white;
+}
+
+.ssss:nth-child(even) .row_mobile {
+  background-color: #f9fafd;
+}
+
+.table_mobile {
+  display: none;
+}
+@media (max-width: 475px) {
+  .table_mobile {
+    display: block !important;
+  }
+  .table_desktop{
+    display: none !important;
+  }
+
+}
+
+
+
+
+@keyframes contend_seccion_animation {
+  0% {
+      /* transform: translateX(-100%); */
+      opacity: 0;
+      visibility: hidden;
+      /* max-width: 0px; */
+  }
+
+  100% {
+      /* transform: translateX(0); */
+      opacity: 1;
+      visibility: visible;
+      /* max-width: 100%; */
+  }
+}
+
+/* .contend_seccion {
+  animation-name: contend_seccion_animation;
+  animation-duration: 900ms;
+} */
+
+
+.btn_edit_small {
+  border: 0px;
+  padding: 10px 12px 10px 12px;
+  border-radius: .5rem;
+  background: #ffc107;
+  color: white;
+  cursor: pointer;
+  box-shadow: #0000004d 0px 1px 7px -3px;
+}
+
+.btn_edit_small:hover {
+  background: #dda809;
 }

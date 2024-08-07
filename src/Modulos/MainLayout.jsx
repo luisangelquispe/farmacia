@@ -12,7 +12,7 @@ import { Outlet, useNavigate } from 'react-router-dom'
 import { ItemMenu } from './ItemMenu'
 import { ItemMenuList } from '../Helpers/itemMenu'
 import { Modals } from './Modals'
-import { LOGIN } from '../Helpers/paths'
+import { LOGIN, USERS } from '../Helpers/paths'
 
 
 export const MainLayout = () => {
@@ -40,6 +40,10 @@ export const MainLayout = () => {
     const logOut = () => {
         navigate(LOGIN)
     }
+    const irUsers = () => {
+        navigate(USERS)
+    }    
+
     return (
         <>
             <div style={{ width: "100vw", height: "100vh", display: "flex", flexDirection: "column" }} onClick={() => (contendCfgActive && setcontendCfgActive(false))} >
@@ -95,9 +99,11 @@ export const MainLayout = () => {
                     (
 
                         <div className="contend_cfg">
-                            <div className="itemCfg" style={{ display: "flex", gap: "10px" }}>
+                            <div className="itemCfg" style={{ display: "flex", gap: "10px" }}
+                                onClick={() => { irUsers() }}
+                            >
                                 <FontAwesomeIcon icon={faPenToSquare} />
-                                <p style={{ fontSize: "12px" }}>Permisos</p>
+                                <p style={{ fontSize: "12px" }}>Users</p>
                             </div>
 
                             <div className="itemCfg" style={{ display: "flex", gap: "10px" }}

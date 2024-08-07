@@ -7,7 +7,43 @@ const defautValues = {
     status: null,
     error: null,
     loading: null,
-    productos: [],
+    productos: [
+
+        {
+            nombre: "item",
+            marca: "item",
+            distribuidor: "item",
+            paisDeOrigen: "item",
+            precioCompra: "item",
+            precioVenta: "item",
+            precioCompetencia: "item",
+            stock: "item",
+            vcto: "13-45-3042",
+        },
+
+        {
+            nombre: "item",
+            marca: "item",
+            distribuidor: "item",
+            paisDeOrigen: "item",
+            precioCompra: "item",
+            precioVenta: "item",
+            precioCompetencia: "item",
+            stock: "item",
+            vcto: "13-45-3042",
+        },
+        {
+            nombre: "item",
+            marca: "item",
+            distribuidor: "item",
+            paisDeOrigen: "item",
+            precioCompra: "item",
+            precioVenta: "item",
+            precioCompetencia: "item",
+            stock: "item",
+            vcto: "13-45-3042",
+        }
+    ],
     modal: false
 
 };

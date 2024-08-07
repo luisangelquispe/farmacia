@@ -1,5 +1,5 @@
 import { faClipboard, faList, faPenFancy } from "@fortawesome/free-solid-svg-icons";
-import { INVENTARIO, MARCA, PRODUCTOS } from "./paths";
+import { INVENTARIO, MARCA, } from "./paths";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons/faCartShopping";
 
 export const ItemMenuList = [
