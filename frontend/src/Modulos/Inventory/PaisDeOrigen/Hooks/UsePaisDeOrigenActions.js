@@ -14,23 +14,23 @@ export const usePaisDeOrigenActions = () => {
     };
 
     const paisesDeOrigenGet = () => {
-        return dispatch(getPaisesDeOrigen({ token: token }));
+        paisDeOrigen?.paisesDeOrigen?.length == 0 && dispatch(getPaisesDeOrigen({ token: token }))
     }
     const paisDeOrigenAdd = (dataForm) => {
         return dispatch(postPaisesDeOrigen({ dataForm: dataForm, token: token }));
     };
 
-    const paisDeOrigenUpdate = (dataForm) => { 
+    const paisDeOrigenUpdate = (dataForm) => {
         return dispatch(putPaisesDeOrigen({ dataForm: { ...dataForm, id: paisDeOrigen?.idPaisDeOrigenEdit }, token: token }));
     };
 
     const IdPaisDeOrigenEditChange = (id) => {
         dispatch(changeIdPaisDeOrigenEdit({ id: id }));
     }
-    const modalChangeEditPaisDeOrigen = () => { 
+    const modalChangeEditPaisDeOrigen = () => {
 
         dispatch(changeModalEditPaidDeOrigen());
-     }
+    }
 
     return {
         modalChange,

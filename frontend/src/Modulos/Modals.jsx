@@ -13,6 +13,9 @@ import { ModalAddDistribuidor } from './Inventory/Distribuidor/Components/ModalA
 import { ModalUpdateDistribuidor } from './Inventory/Distribuidor/Components/ModalUpdateDistribuidor'
 import { ModalAddPaisDeOrigen } from './Inventory/PaisDeOrigen/Components/ModalAddPaisDeOrigen'
 import { ModalUpdatePaisDeOrigen } from './Inventory/PaisDeOrigen/Components/ModalUpdatePaisDeOrigen'
+import { ModalLotes } from './Inventory/Inventario/Components/ModalLotes'
+import { ModalDetalleVenta } from './Ventas/Components/ModalDetalleVenta'
+import { ModalAddVenta } from './Ventas/Components/ModalAddVenta'
 
 export const Modals = () => {
   return (
@@ -29,6 +32,9 @@ export const Modals = () => {
       <ModalUpdateDistribuidor />
       <ModalAddPaisDeOrigen />
       <ModalUpdatePaisDeOrigen />
+      <ModalLotes />
+      <ModalDetalleVenta />
+      <ModalAddVenta />
     </>
   )
 }

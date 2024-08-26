@@ -14,7 +14,7 @@ export const useMarcaActions = () => {
     };
 
     const marcasGet = () => {
-        return dispatch(getMarcas({ token: token }));
+        marca?.marcas?.length == 0 && dispatch(getMarcas({ token: token }))        
     }
     const marcasAdd = (dataForm) => {
         return dispatch(postMarcas({ dataForm: dataForm, token: token }));

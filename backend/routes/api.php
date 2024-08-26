@@ -4,8 +4,12 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\PaisOrigenController;
+use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\ProductosLotesController;
 use App\Http\Controllers\ProveedoresController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VentasController;
+use App\Models\productos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -45,3 +49,12 @@ Route::put("/proveedores/{_proveedor}", [ProveedoresController::class, "update"]
 Route::get("/pais_origen", [PaisOrigenController::class, "index"])->middleware('auth:sanctum');
 Route::post("/pais_origen", [PaisOrigenController::class, "store"])->middleware('auth:sanctum');
 Route::put("/pais_origen/{_pais_origen}", [PaisOrigenController::class, "update"])->middleware('auth:sanctum');
+
+
+Route::get("/producto", [ProductosController::class, "index"]);
+Route::post("/producto", [ProductosController::class, "store"]);
+
+Route::post("/producto_lote", [ProductosLotesController::class, "store"]);
+
+Route::post("/venta", [VentasController::class, "store"])->middleware('auth:sanctum');
+Route::get("/venta", [VentasController::class, "index"])->middleware('auth:sanctum');

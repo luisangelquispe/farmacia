@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useInventarioActions } from './Hooks/UseInventarioActions';
 import { useAppSelector } from '../../../Redux/Hooks/UseStore';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarDays, faPenToSquare, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { useInventarioActions } from './Hooks/UseInventarioActions';
 
@@ -11,7 +11,17 @@ export const Inventario = () => {
 
     const inventario = useAppSelector((state) => state.inventario);
 
-    const { modalChange } = useInventarioActions();
+    const { modalChange, inventarioGet, modalLoteChange, selectIdProduct } = useInventarioActions();
+
+
+    const modalLote = (id) => {
+        selectIdProduct(id);
+        modalLoteChange();
+    }
+
+    useEffect(() => {
+        inventarioGet();
+    }, [])
     return (
         <>
             <div className="contend_seccion" style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
@@ -38,7 +48,8 @@ export const Inventario = () => {
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Nombre</th>
+                                    <th>Producto</th>
+                                    <th>Categoria</th>
                                     <th>Marca</th>
                                     <th>Distribuidor</th>
                                     <th>Pais de origen</th>
@@ -46,22 +57,29 @@ export const Inventario = () => {
                                     <th>Precio venta </th>
                                     <th>Precio competencia </th>
                                     <th>Stock </th>
-                                    <th>Vcto </th>
+                                    <th>Acciones </th>
                                 </tr>
                             </thead>
                             <tbody>
 
                                 {inventario?.productos?.map((obj, i) => (
                                     <tr key={i}>
-                                        <td> {obj?.nombre} </td>
+                                        <td> {obj?.producto} </td>
+                                        <td> {obj?.categoria} </td>
                                         <td> {obj?.marca} </td>
-                                        <td> {obj?.distribuidor} </td>
-                                        <td> {obj?.paisDeOrigen} </td>
-                                        <td> {obj?.precioCompra} </td>
-                                        <td> {obj?.precioVenta} </td>
-                                        <td> {obj?.precioCompetencia} </td>
-                                        <td> {obj?.stock} </td>
-                                        <td> {obj?.vcto} </td>
+                                        <td> {obj?.proveedor} </td>
+                                        <td> {obj?.pais_origen} </td>
+                                        <td> {obj?.precio_compra} </td>
+                                        <td> {obj?.precio_venta} </td>
+                                        <td> {obj?.precio_competencia} </td>
+                                        <td> {obj?.lotes?.reduce((acc, lote) => acc + lote.stock, 0)} </td>
+                                        <td>
+                                            <button className="btn_edit_small"
+                                                onClick={() => { modalLote(obj?.id) }}
+                                            >
+                                                <FontAwesomeIcon icon={faCalendarDays} />
+                                            </button>
+                                        </td>
                                     </tr>
                                 ))}
                                 {inventario?.productos?.length == 0 &&
@@ -83,7 +101,8 @@ export const Inventario = () => {
 
                             <div key={i} className="ssss">
                                 <div className="colum_mobile">
-                                    <p>Nombre</p>
+                                    <p>Producto</p>
+                                    <p>Categoria</p>
                                     <p>Marca</p>
                                     <p>Distribuidor</p>
                                     <p>Pais de origen</p>
@@ -91,18 +110,25 @@ export const Inventario = () => {
                                     <p>Precio venta </p>
                                     <p>Precio competencia </p>
                                     <p>Stock </p>
-                                    <p>Vcto </p>
+                                    <p>Acciones </p>
                                 </div>
                                 <div className="row_mobile">
-                                    <p> {obj?.nombre} </p>
+                                    <p> {obj?.producto} </p>
+                                    <p> {obj?.categoria} </p>
                                     <p> {obj?.marca} </p>
-                                    <p> {obj?.distribuidor} </p>
-                                    <p> {obj?.paisDeOrigen} </p>
-                                    <p> {obj?.precioCompra} </p>
-                                    <p> {obj?.precioVenta} </p>
-                                    <p> {obj?.precioCompetencia} </p>
-                                    <p> {obj?.stock} </p>
-                                    <p> {obj?.vcto} </p>
+                                    <p> {obj?.proveedor} </p>
+                                    <p> {obj?.pais_origen} </p>
+                                    <p> {obj?.precio_compra} </p>
+                                    <p> {obj?.precio_venta} </p>
+                                    <p> {obj?.precio_competencia} </p>
+                                    <p> {obj?.lotes?.reduce((acc, lote) => acc + lote.stock, 0)} </p>
+                                    <p>
+                                        <button className="btn_edit_small"
+                                            onClick={() => { modalLote(obj?.id) }}
+                                        >
+                                            <FontAwesomeIcon icon={faCalendarDays} />
+                                        </button>
+                                    </p>
                                 </div>
                             </div>
 

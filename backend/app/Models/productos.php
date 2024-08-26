@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class productos extends Model
+class Productos extends Model
 {
     use HasFactory;
 
@@ -19,5 +19,17 @@ class productos extends Model
         'id_categoria',
         'id_marca',
         'id_pais_origen',
+    ];
+
+    protected $casts = [
+        'name' => 'string',
+        'cod_producto' => 'string',
+        'precio_compra' => 'float',
+        'precio_venta' => 'float',
+        'precio_competencia' => 'float',
+        'id_proveedor' => 'integer',
+        'id_categoria' => 'integer',
+        'id_marca' => 'integer',
+        'id_pais_origen' => 'integer',
     ];
 }

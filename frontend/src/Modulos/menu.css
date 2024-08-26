@@ -43,7 +43,6 @@
 .item_menu:hover {
     background: #d6dbe2;
     cursor: pointer;
-    /* color: #5e6e82; */
 }
 
 #icon_bars:hover {
@@ -136,7 +135,7 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
 
 }
 
@@ -191,7 +190,7 @@ ul {
 
 
 .contend_cfg {
-    color: #303b4a;    
+    color: #303b4a;
     min-width: 30px;
     min-height: 30px;
     background: white;
@@ -200,17 +199,18 @@ ul {
     top: 41px;
     right: 7px;
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
     border-radius: 5px;
     box-shadow: #0000004d 0px 1px 7px -3px
 }
 
 
 
-.itemCfg{
+.itemCfg {
     padding: .5rem;
     cursor: pointer;
 }
-.itemCfg:hover{
+
+.itemCfg:hover {
     background: #c3c3c3;
 }

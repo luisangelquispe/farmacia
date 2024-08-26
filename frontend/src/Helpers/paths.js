@@ -6,3 +6,4 @@ export const DISTRIBUIDORES = "/distribuidores";
 export const USERS = "/users";
 export const TABLERO = "/tablero";
 export const PAISESDEORIGEN = "/paisesDeOrigen";
+export const VENTAS = "/ventas";

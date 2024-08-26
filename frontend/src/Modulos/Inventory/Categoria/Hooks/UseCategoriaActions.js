@@ -14,7 +14,7 @@ export const useCategoriaActions = () => {
     };
 
     const categoriasGet = () => {
-        return dispatch(getCategorias({ token: token }));
+        categoria?.categorias?.length == 0 && dispatch(getCategorias({ token: token }))             
     }
     const categoriaAdd = (dataForm) => {
         return dispatch(postCategoria({ dataForm: dataForm, token: token }));

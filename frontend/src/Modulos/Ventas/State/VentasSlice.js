@@ -1,76 +1,75 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { URL_ } from "../../../../Helpers/urls";
+import { URL_ } from "../../../Helpers/urls";
 
 
 const defautValues = {
     status: null,
     error: null,
     loading: null,
-    productos: [],
+    ventas: [],
     modal: false,
-    modalLote: false,
-    loadAddProducto: false,
-    idProductoSelect: null
+    modalAddVenta: false,
+    loadAddVenta: false,
+    idVentaSelect: null,
 
 };
 
-const InventarioSlice = createSlice({
-    name: "inventario",
+const VentasSlice = createSlice({
+    name: "ventas",
     initialState: defautValues,
     reducers: {
         changeModal: (state) => {
             state.modal = !state.modal;
         },
-        changeModalLote: (state) => {
-            state.modalLote = !state.modalLote;
+        changeModalAddVenta: (state) => {
+            state.modalAddVenta = !state.modalAddVenta;
         },
-        addProduct: (state, action) => {
-            state.productos = [...state.productos, action.payload.dataForm];
-        },
-        changeIdProductSelect: (state, action) => {
-            state.idProductoSelect = action.payload;
+        changeiIVentaSelect: (state, action) => {
+            state.idVentaSelect = action.payload.id;
         }
 
     },
 
     extraReducers(builder) {
         // get Inventario
-        builder.addCase(getInventario.pending, (state) => {
+        builder.addCase(getVentas.pending, (state) => {
             state.status = 100
         });
-        builder.addCase(getInventario.fulfilled, (state, action) => {
+        builder.addCase(getVentas.fulfilled, (state, action) => {
             state.status = 200
-            state.productos = action?.payload
+            state.ventas = action?.payload
         });
         // post producto Inventario
-        builder.addCase(addProducto.pending, (state) => {
+        builder.addCase(postVenta.pending, (state) => {
             state.status = 100
+            state.loadAddVenta = true;
+
         });
-        builder.addCase(addProducto.fulfilled, (state, action) => {
+        builder.addCase(postVenta.fulfilled, (state, action) => {
             state.status = 200
-            state.loadAddProducto = false;
-            state.productos = [...state.productos, action?.payload];
+            state.loadAddVenta = false;
+            state.ventas = [...state.ventas, action?.payload];
         });
     },
 });
 
 // -------------------------------
 export const {
-    changeModal, changeModalLote, addProduct, changeIdProductSelect
-} = InventarioSlice.actions;
-export default InventarioSlice.reducer;
+    changeModal, changeiIVentaSelect, changeModalAddVenta
+} = VentasSlice.actions;
+export default VentasSlice.reducer;
 
 
 
 // -------------------------------
 
-export const getInventario = createAsyncThunk(
-    "inventario/get",
+export const getVentas = createAsyncThunk(
+    "ventas/get",
     async ({ token }) => {
         console.log("token", token);
 
-        const url = URL_ + `api/producto`;
+        const url = URL_ + `api/venta`;
         return await axios
             .get(url, {
                 headers: {
@@ -86,10 +85,10 @@ export const getInventario = createAsyncThunk(
     }
 );
 
-export const addProducto = createAsyncThunk(
-    "inventario/post",
+export const postVenta = createAsyncThunk(
+    "venta/post",
     async ({ dataForm, token }) => {
-        const url = URL_ + `api/producto`;
+        const url = URL_ + `api/venta`;
 
         return await axios
             .post(url, dataForm, {

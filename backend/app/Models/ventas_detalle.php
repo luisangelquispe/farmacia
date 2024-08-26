@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ventas_detalle extends Model
+class Ventas_detalle extends Model
 {
     use HasFactory;
 
@@ -14,5 +14,12 @@ class ventas_detalle extends Model
         'id_producto',
         'monto',
         'cantidad',
+    ];
+
+    protected $casts = [
+        'id_venta' => 'integer',
+        'id_producto' => 'integer',        
+        'monto' => 'float',
+        'cantidad' => 'integer'
     ];
 }

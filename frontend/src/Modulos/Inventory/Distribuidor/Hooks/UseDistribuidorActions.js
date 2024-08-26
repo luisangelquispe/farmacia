@@ -15,7 +15,7 @@ export const useDistribuidorActions = () => {
     };
 
     const distribuidorGet = () => {
-        return dispatch(getDistribuidores({ token: token }));
+        distribuidor?.distribuidores?.length == 0 && dispatch(getDistribuidores({ token: token }))
     }
     const distribuidorAdd = (dataForm) => {
         return dispatch(postDistribuidores({ dataForm: dataForm, token: token }));
@@ -28,10 +28,10 @@ export const useDistribuidorActions = () => {
     const IdDistribuidorEditChange = (id) => {
         dispatch(changeIdDistribuidorEdit({ id: id }));
     }
-    const modalChangeEditDistribuidor = () => { 
+    const modalChangeEditDistribuidor = () => {
 
         dispatch(changeModalEditDistribuidor());
-     }
+    }
 
     return {
         modalChange,

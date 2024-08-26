@@ -7,6 +7,7 @@ import PaisDeOrigenSlice from "../Modulos/Inventory/PaisDeOrigen/State/PaisDeOri
 import UsersSlice from "../Modulos/Segurity/Users/State/UsersSlice";
 import LoginSlice from "../Modulos/Login/State/LoginSlice";
 import CategoriaSlice from "../Modulos/Inventory/Categoria/State/CategoriaSlice";
+import VentasSlice from "../Modulos/Ventas/State/VentasSlice";
 
 export const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ export const store = configureStore({
     paisDeOrigen: PaisDeOrigenSlice,
     users: UsersSlice,
     login: LoginSlice,
-    categoria: CategoriaSlice
+    categoria: CategoriaSlice,
+    ventas: VentasSlice
   },
 });

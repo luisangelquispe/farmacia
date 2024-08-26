@@ -116,6 +116,53 @@ tbody tr:nth-child(even) {
 }
 
 
+/* --------------------------- */
+/* --Table recibo------------- */
+/* --------------------------- */
+
+
+.tableRecibo {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableRecibo th,
+.tableRecibo td {
+  border-left: 0 ;
+  border-right: 0 ;
+  border-bottom: 1px dashed #000000;
+  border-top: 1px dashed #000000;
+  padding: 5px;
+  text-align: center;
+}
+
+.tableRecibo tr th {
+  padding: 5px;
+  background-color: #00000000;
+  text-align: center;
+}
+
+.tableRecibo thead {
+  color: #000000;
+}
+
+.tableRecibo tbody {
+  color: #000000;
+}
+
+.tableRecibo tbody tr:nth-child(odd) {
+  background-color: #00000000;
+}
+
+.tableRecibo tbody tr:nth-child(even) {
+  background-color: #00000000 ;
+}
+
+/* --------------------- */
+/* --------------------- */
+/* --------------------- */
+
+
 
 
 @keyframes contend_seccion_animation {
@@ -225,4 +272,15 @@ tbody tr:nth-child(even) {
 .checkbox-wrapper-64 input:checked + .slider:before {
   transform: translateX(1.4em);
   background-color: #fff;
+}
+
+
+.boton_invisible {
+  background-color: transparent;
+  border: none;
+  color: inherit; /* Mantiene el color del texto del elemento padre */
+  font: inherit;  /* Mantiene la fuente del elemento padre */
+  cursor: pointer; /* Para que siga teniendo la funcionalidad de un botón */
+  padding: 0;
+  margin: 0;
 }

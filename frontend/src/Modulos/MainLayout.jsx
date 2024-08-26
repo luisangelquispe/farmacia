@@ -78,9 +78,10 @@ export const MainLayout = () => {
 
                                 <ItemMenu
                                     key={i}
-                                    path={obj.path}
-                                    icon={obj.icon}
-                                    title={obj.title}
+                                    path={obj?.path}
+                                    icon={obj?.icon}
+                                    title={obj?.title}
+                                    sub={obj?.sub}
                                 />
 
                             ))}
