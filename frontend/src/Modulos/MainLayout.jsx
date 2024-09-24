@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './menu.css'
-import { faBars, faChevronDown, faChevronUp, faList, faPenToSquare, faRightToBracket, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faCalendarXmark, faChevronDown, faChevronUp, faList, faPenToSquare, faRightToBracket, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClipboard } from '@fortawesome/free-regular-svg-icons'
 import { faTruckFast } from '@fortawesome/free-solid-svg-icons/faTruckFast'
@@ -57,6 +57,12 @@ export const MainLayout = () => {
 
                     <FontAwesomeIcon icon={faBars} style={{ padding: "1rem", cursor: "pointer", display: "none" }} id='icon_bars' onClick={toggleMenu} />
 
+                    <button
+                        className="btn_two"
+                        style={{ cursor: "pointer", display: "flex", gap: "5px", position: "absolute", right: "100px" }}
+                    >
+                        <FontAwesomeIcon icon={faCalendarXmark} />
+                    </button>
                     <button
                         className="btn_two"
                         style={{ cursor: "pointer", display: "flex", gap: "5px", position: "absolute", right: "30px" }}

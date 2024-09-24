@@ -6,6 +6,7 @@ import { useAppSelector } from '../../Redux/Hooks/UseStore';
 
 import { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
+import { useInventarioActions } from '../Inventory/Inventario/Hooks/UseInventarioActions';
 
 
 
@@ -18,6 +19,7 @@ export const Ventas = () => {
     const ventas = useAppSelector((state) => state.ventas.ventas);
 
     const { ventasGet, modalChange, idVentaSelectChange, modalAddVentaChange } = useVentasActions();
+    const { vencimientoGet } = useInventarioActions();
 
     const selectVenta = (id) => {
         idVentaSelectChange(id);
@@ -26,6 +28,7 @@ export const Ventas = () => {
 
     useEffect(() => {
         ventasGet();
+        vencimientoGet();
     }, [])
 
 
@@ -90,7 +93,7 @@ export const Ventas = () => {
                             ))}
                             {ventas?.length == 0 &&
                                 <tr>
-                                    <td colSpan={5} > Sin registros </td>
+                                    <td colSpan={7} > Sin registros </td>
                                 </tr>
 
                             }

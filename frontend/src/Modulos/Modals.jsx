@@ -16,6 +16,7 @@ import { ModalUpdatePaisDeOrigen } from './Inventory/PaisDeOrigen/Components/Mod
 import { ModalLotes } from './Inventory/Inventario/Components/ModalLotes'
 import { ModalDetalleVenta } from './Ventas/Components/ModalDetalleVenta'
 import { ModalAddVenta } from './Ventas/Components/ModalAddVenta'
+import { ModalVencimiento } from './Ventas/Components/ModalVencimiento'
 
 export const Modals = () => {
   return (
@@ -35,6 +36,7 @@ export const Modals = () => {
       <ModalLotes />
       <ModalDetalleVenta />
       <ModalAddVenta />
+      <ModalVencimiento />
     </>
   )
 }

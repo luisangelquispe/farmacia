@@ -9,6 +9,7 @@ use App\Http\Controllers\ProductosLotesController;
 use App\Http\Controllers\ProveedoresController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VentasController;
+use App\Http\Controllers\VentasDetalleController;
 use App\Models\productos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -51,10 +52,15 @@ Route::post("/pais_origen", [PaisOrigenController::class, "store"])->middleware(
 Route::put("/pais_origen/{_pais_origen}", [PaisOrigenController::class, "update"])->middleware('auth:sanctum');
 
 
-Route::get("/producto", [ProductosController::class, "index"]);
-Route::post("/producto", [ProductosController::class, "store"]);
+Route::get("/producto", [ProductosController::class, "index"])->middleware('auth:sanctum');
+Route::post("/producto", [ProductosController::class, "store"])->middleware('auth:sanctum');
 
 Route::post("/producto_lote", [ProductosLotesController::class, "store"]);
 
 Route::post("/venta", [VentasController::class, "store"])->middleware('auth:sanctum');
 Route::get("/venta", [VentasController::class, "index"])->middleware('auth:sanctum');
+
+
+Route::get("/vencimiento", [VentasDetalleController::class, "index"])->middleware('auth:sanctum');
+
+Route::post("/rptVentas", [VentasController::class, "getRptVentas"])->middleware('auth:sanctum');

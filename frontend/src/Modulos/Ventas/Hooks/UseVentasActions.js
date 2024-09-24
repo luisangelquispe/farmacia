@@ -14,27 +14,28 @@ export const useVentasActions = () => {
         dispatch(changeModal());
     };
 
-    const ventasGet = () => {        
+    const ventasGet = () => {
         productos?.length == 0 && dispatch(getInventario({ token: token }))
-        ventas?.length == 0 && dispatch(getVentas({ token: token }))        
+        ventas?.length == 0 && dispatch(getVentas({ token: token }))
     }
 
     const ventasPost = (dataForm) => {
         return dispatch(postVenta({ dataForm: dataForm, token: token }));
     };
 
-    const idVentaSelectChange = (id) => {        
+    const idVentaSelectChange = (id) => {
         dispatch(changeiIVentaSelect({ id: id }));
     }
 
-    const modalAddVentaChange = () => {        
+    const modalAddVentaChange = () => {
         dispatch(changeModalAddVenta());
     }
+
     return {
         modalChange,
         ventasGet,
         ventasPost,
         idVentaSelectChange,
-        modalAddVentaChange
+        modalAddVentaChange        
     };
 };

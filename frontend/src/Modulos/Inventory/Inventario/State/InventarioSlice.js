@@ -10,8 +10,10 @@ const defautValues = {
     productos: [],
     modal: false,
     modalLote: false,
+    modalVencimiento: false,
     loadAddProducto: false,
-    idProductoSelect: null
+    idProductoSelect: null,
+    productosVencidos: null
 
 };
 
@@ -30,7 +32,10 @@ const InventarioSlice = createSlice({
         },
         changeIdProductSelect: (state, action) => {
             state.idProductoSelect = action.payload;
-        }
+        },
+        changeModalVencimiento: (state) => {
+            state.modalVencimiento = !state.modalVencimiento;
+        },
 
     },
 
@@ -52,12 +57,21 @@ const InventarioSlice = createSlice({
             state.loadAddProducto = false;
             state.productos = [...state.productos, action?.payload];
         });
+        // get Vencimiento
+        builder.addCase(getVencimiento.pending, (state) => {
+            state.status = 100
+        });
+        builder.addCase(getVencimiento.fulfilled, (state, action) => {
+            state.status = 200
+            state.productosVencidos = action?.payload
+            state.modalVencimiento = true;
+        });
     },
 });
 
 // -------------------------------
 export const {
-    changeModal, changeModalLote, addProduct, changeIdProductSelect
+    changeModal, changeModalLote, addProduct, changeIdProductSelect, changeModalVencimiento
 } = InventarioSlice.actions;
 export default InventarioSlice.reducer;
 
@@ -93,6 +107,28 @@ export const addProducto = createAsyncThunk(
 
         return await axios
             .post(url, dataForm, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
+            .then((response) => {
+                return response.data;
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
+);
+
+
+export const getVencimiento = createAsyncThunk(
+    "vencimiento/get",
+    async ({ token }) => {
+        console.log("token", token);
+
+        const url = URL_ + `api/vencimiento`;
+        return await axios
+            .get(url, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

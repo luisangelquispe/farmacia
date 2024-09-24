@@ -1,5 +1,5 @@
 import { faClipboard, faList, faPenFancy } from "@fortawesome/free-solid-svg-icons";
-import { CATEGORIAS, DISTRIBUIDORES, INVENTARIO, MARCA, PAISESDEORIGEN, TABLERO, VENTAS, } from "./paths";
+import { CATEGORIAS, DISTRIBUIDORES, INVENTARIO, MARCA, PAISESDEORIGEN, REPORTEDEVENTAS, TABLERO, VENTAS, } from "./paths";
 // import { faCartShopping } from "@fortawesome/free-solid-svg-icons/faCartShopping";
 
 export const ItemMenuList = [
@@ -13,5 +13,11 @@ export const ItemMenuList = [
             { path: INVENTARIO, icon: faClipboard, title: "Inventario" },
         ]
     },    
-    { path: VENTAS, icon: faClipboard, title: "Ventas" }
+    { path: VENTAS, icon: faClipboard, title: "Ventas" },
+    {path: false, icon: faClipboard, title: "Reportes",
+        sub: [
+            { path: REPORTEDEVENTAS, icon: faPenFancy, title: "Reporte de ventas" },
+            // { path: MARCA, icon: faPenFancy, title: "Reporte de Inventario" },
+        ]
+    },    
 ]

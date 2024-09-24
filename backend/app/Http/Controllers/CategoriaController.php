@@ -8,14 +8,14 @@ use Illuminate\Http\Request;
 class CategoriaController extends Controller
 {
     //
-
+    // traer datos
     public function index()
     {
 
         return Categoria::all();
     }
 
-
+    // insertar datos
     public function store(Request $request)
     {
         $categoria = Categoria::create($request->all());
@@ -23,7 +23,7 @@ class CategoriaController extends Controller
         return $categoria;
     }
 
-
+    // insertar actualizar
     public function update(Request $request, Categoria $_categoria)
     {
 

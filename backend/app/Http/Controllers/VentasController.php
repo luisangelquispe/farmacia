@@ -84,6 +84,7 @@ class VentasController extends Controller
                 'v.fecha_venta',
             )
             ->leftJoin('users as u', 'u.id', '=', 'v.id_user')
+            ->where('v.fecha_venta',  today())
             ->get();
 
         foreach ($ventas as $venta) {
@@ -110,4 +111,36 @@ class VentasController extends Controller
 
         return $ventas;
     }
+
+
+    public function getRptVentas(Request $request)
+    {
+        // select v.id, v.cod_recibo, v.id_user, u.name as user_name, v.fecha_venta,
+        // vd.id_producto, p.cod_producto, p.name producto_name, vd.cantidad, vd.monto from ventas v
+        // left join ventas_detalles vd on vd.id_venta = v.id
+        // left join productos p on p.id = vd.id_producto
+        // left join users u on u.id = v.id_user 
+        // where v.fecha_venta = $request['fecha'];
+        $ventas = DB::table('ventas as v')
+            ->select(
+                'v.id',
+                'v.cod_recibo',
+                'v.id_user',
+                'u.name as user_name',  
+                'v.fecha_venta',
+                'vd.id_producto',
+                'p.cod_producto',
+                'p.name as producto_name', 
+                'vd.cantidad',
+                'vd.monto'
+            )
+            ->leftJoin('ventas_detalles as vd', 'vd.id_venta', '=', 'v.id')
+            ->leftJoin('productos as p', 'p.id', '=', 'vd.id_producto')
+            ->leftJoin('users as u', 'u.id', '=', 'v.id_user')
+            ->where('v.fecha_venta', $request['fecha'])
+            ->get();
+    
+        return $ventas;
+    }
+    
 }

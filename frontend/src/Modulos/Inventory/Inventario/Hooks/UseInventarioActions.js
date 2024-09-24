@@ -3,7 +3,10 @@ import { getCategorias } from "../../Categoria/State/CategoriaSlice";
 import { getDistribuidores } from "../../Distribuidor/State/DistribuidorSlice";
 import { getMarcas } from "../../Marca/State/MarcaSlice";
 import { getPaisesDeOrigen } from "../../PaisDeOrigen/State/PaisDeOrigenSlice";
-import { addProduct, addProducto, changeIdProductSelect, changeModal, changeModalLote, getInventario } from "../State/InventarioSlice";
+import {
+    addProduct, addProducto, changeIdProductSelect,
+    changeModal, changeModalLote, changeModalVencimiento, getInventario, getVencimiento
+} from "../State/InventarioSlice";
 
 
 
@@ -44,12 +47,19 @@ export const useInventarioActions = () => {
     }
 
     const productoAdd = (dataForm) => {
-
-        dispatch(addProducto({ dataForm: dataForm }));
+        dispatch(addProducto({ dataForm: dataForm, token: token }));
     }
 
     const selectIdProduct = (id) => {
         dispatch(changeIdProductSelect(id))
+    }
+
+    const vencimientoGet = () => {
+        dispatch(getVencimiento({ token: token }))
+    }
+
+    const modalVencimientoChange = () => {
+        dispatch(changeModalVencimiento());
     }
 
     return {
@@ -58,6 +68,8 @@ export const useInventarioActions = () => {
         productAdd,
         inventarioGet,
         productoAdd,
-        selectIdProduct
+        selectIdProduct,
+        vencimientoGet,
+        modalVencimientoChange
     };
 };

@@ -4,7 +4,7 @@ import {
     Route,
 
 } from "react-router-dom";
-import { CATEGORIAS, DISTRIBUIDORES, INVENTARIO, MARCA, PAISESDEORIGEN, TABLERO, USERS, VENTAS } from "../Helpers/paths";
+import { CATEGORIAS, DISTRIBUIDORES, INVENTARIO, MARCA, PAISESDEORIGEN, REPORTEDEVENTAS, TABLERO, USERS, VENTAS } from "../Helpers/paths";
 import { Login } from "../Modulos/Login/Login";
 import { MainLayout} from "../Modulos/MainLayout";
 import { Productos } from "../Modulos/Inventory/Inventario/Productos";
@@ -16,6 +16,7 @@ import { Tablero } from "../Modulos/Tablero/Tablero";
 import { Distribuidor } from "../Modulos/Inventory/Distribuidor/Distribuidor";
 import { PaisDeOrigen } from "../Modulos/Inventory/PaisDeOrigen/PaisDeOrigen";
 import { Ventas } from "../Modulos/Ventas/Ventas";
+import { ReporteDeVentas } from "../Modulos/Reportes/ReporteDeVentas/ReporteDeVentas";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -32,7 +33,7 @@ const router = createBrowserRouter(
                 <Route path={DISTRIBUIDORES} Component={Distribuidor} />
                 <Route path={PAISESDEORIGEN} Component={PaisDeOrigen} />
                 <Route path={VENTAS} Component={Ventas} />
-
+                <Route path={REPORTEDEVENTAS} Component={ReporteDeVentas} />
             </Route>
         </>
     )

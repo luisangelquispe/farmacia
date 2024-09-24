@@ -22,7 +22,6 @@ export const ModalDetalleVenta = () => {
 
 
     const { modalChange } = useVentasActions();
-
     const Recibo = React.forwardRef((props, ref) => (
         <div ref={ref}
             style={{ display: "flex", flexDirection: "column", width: "300px", padding: "10px", fontSize: "10px" }}>

@@ -44,10 +44,10 @@ const VentasSlice = createSlice({
         builder.addCase(postVenta.pending, (state) => {
             state.status = 100
             state.loadAddVenta = true;
-
+            state.modalAddVenta = false;
         });
         builder.addCase(postVenta.fulfilled, (state, action) => {
-            state.status = 200
+            state.status = 200;
             state.loadAddVenta = false;
             state.ventas = [...state.ventas, action?.payload];
         });
